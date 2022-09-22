@@ -6,7 +6,7 @@ public static class Program
     {
         Turtle turtle = new Turtle(1, 1, Direction.Right, '#');
         
-        Spiral(10, 1, turtle);
+        Spiral(100, 5, turtle);
 
         Console.ReadKey();
     }
@@ -18,7 +18,9 @@ public static class Program
         
         turtle.MoveForward(length);
         turtle.TurnRight();
+        turtle.MoveForward(length);
+        turtle.TurnRight();
         
-        Spiral(length - decrement, decrement, turtle);
+        Spiral(length - decrement - 1, decrement, turtle);
     }
 }
