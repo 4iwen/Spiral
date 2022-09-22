@@ -15,6 +15,18 @@ public class Turtle
         
         Console.SetCursorPosition(_x,_y);
     }
+    
+    public void TurnRight()
+    {
+        _direction = _direction switch
+        {
+            Direction.Down => Direction.Left,
+            Direction.Left => Direction.Up,
+            Direction.Up => Direction.Right,
+            Direction.Right => Direction.Down,
+            _ => throw new ArgumentOutOfRangeException()
+        };
+    }
 
     public void MoveForward(int length)
     {
@@ -31,30 +43,6 @@ public class Turtle
             
             Draw();
         }
-    }
-    
-    public void TurnRight()
-    {
-        _direction = _direction switch
-        {
-            Direction.Down => Direction.Left,
-            Direction.Left => Direction.Up,
-            Direction.Up => Direction.Right,
-            Direction.Right => Direction.Down,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-    }
-    
-    public void TurnLeft()
-    {
-        _direction = _direction switch
-        {
-            Direction.Down => Direction.Right,
-            Direction.Right => Direction.Up,
-            Direction.Up => Direction.Left,
-            Direction.Left => Direction.Down,
-            _ => throw new ArgumentOutOfRangeException()
-        };
     }
     
     private void Draw()
